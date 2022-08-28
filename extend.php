@@ -12,20 +12,15 @@
 namespace Therealsujitk\Hljs;
 
 use Flarum\Extend;
-use Flarum\Settings\SettingsRepositoryInterface;
+use Illuminate\Contracts\Events\Dispatcher;
 
 return [
     (new Extend\Frontend('forum'))
-        ->js(__DIR__.'/js/dist/forum.js'),
-
+        ->js(__DIR__.'/js/dist/forum.js'),       
     (new Extend\Frontend('admin'))
         ->js(__DIR__.'/js/dist/admin.js'),
-
     new Extend\Locales(__DIR__ . '/resources/locale'),
-
-    (new Extend\ApiSerializer(ForumSerializer::class))
-        ->attribute('therealsujitk-hljs.theme_name', function ($serializer, $model) {
-            $settings = resolve(SettingsRepositoryInterface::class);
-            return $settings->get('therealsujitk-hljs.theme_name');
-        })
+    function (Dispatcher $dispatcher) {
+        $dispatcher->subscribe(Listeners\SaveSettings::class);
+    },
 ];
