@@ -1,5 +1,5 @@
 {
-  "name": "gitzaai/flarum-ext-hljs",
+  "name": "therealsujitk/flarum-ext-hljs",
   "description": "Integrate your forum with highlight.js.",
   "keywords": [
     "highlight.js",
@@ -15,9 +15,9 @@
     "source": "https://github.com/therealsujitk/flarum-ext-hljs",
     "forum": "https://discuss.flarum.org/d/23229"
   },
-  "homepage": "https://forum.gitzaai",
+  "homepage": "https://therealsuji.tk",
   "require": {
-    "flarum/core": "^1.0"
+    "flarum/core": "^0.1.0-beta.15"
   },
   "authors": [
     {
